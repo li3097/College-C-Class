@@ -1,0 +1,66 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LTAssignment3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //variables with arrays created
+            long [] baseNumbers = new long[5];
+            long [] exponents = new long[5];
+            long [] results = new long[5];
+
+            int x;
+            int y;
+
+            //random numbers is generated
+            Random randomNumbers = new Random();
+
+            for (int Numbers = 1; Numbers <= 5; ++Numbers)
+            {
+                
+                baseNumbers[5] = randomNumbers.Next(1, 10);
+
+                //Exponenets random numbers are generated here
+                exponents[10] = randomNumbers.Next(50);
+
+            }//end of for   
+
+            //doing the math of the 2 random numbers and displaying them
+            for (int Numbers = 0; Numbers <= 5; ++Numbers)
+                baseNumbers += [Numbers];
+            exponents += [Numbers];
+        }//end of main
+        static int Power( int baseNumbers, int exponents, int results)
+        {
+            if (baseNumbers <= 1 && exponents <= 1)
+            {
+                return 1;
+            }
+            else
+            {
+                return results = baseNumbers * baseNumbers^(exponents - 1);
+
+                
+            }
+        }
+        static void PrintArrays(long [] baseNumbers, long [] exponents, long [] results)
+        {
+            //text is being shown here
+            Console.WriteLine("Base", "Exponents", "Results");
+
+           
+
+                Console.WriteLine(baseNumbers, exponents, results.GetUpperBound(0));
+
+            //instructions to exit the program
+            Console.WriteLine("Press the [enter] key to exit...");
+            Console.ReadLine();
+        }   
+    }//end of class
+}//end of namespace
