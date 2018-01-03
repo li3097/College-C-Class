@@ -1,0 +1,79 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LTAssignment4
+{
+    class SavingsAccount
+    {
+        static int annualInterestRate;
+
+        double savingsBalance;
+
+      
+        string savingsAccountName; // { get; set; }
+        static void Main(string[] args)
+        {
+            
+
+        }//end main
+
+      
+        public /*static*/ void SetSavingsAccountName(string setSavingsAccountName)
+        {
+           
+            //savingsAccountName = setSavingsAccountName;
+            string setSavingsAccountName = setSavingsAccountName; 
+
+           
+            Console.WriteLine(setSavingsAccountName);
+          
+        }//end set
+
+     
+        public static string GetSavingsAccountName(string getsavingsAccountName)
+        {
+
+            return getsavingsAccountName;
+        }//end get
+
+        static void SetSavingsBalance(double savingsBalance)
+        {
+           
+            Console.WriteLine(savingsBalance);
+            
+        }//end double set
+
+        public static double GetSavingsBalance(double getsavingsBalance)
+        {
+            return getsavingsBalance;
+        }//end double get
+
+      
+        public static void CalculateMonthlyInterest(double savingsBalance, double annualInterestRate) {
+            double Interest;
+            Interest = (savingsBalance * annualInterestRate)/ 12;
+            
+        }//end CalculateMonthlyInterest
+
+        static void SetAnnualInterestRate(float setAnnualInterestRate)
+        {
+           
+            Console.WriteLine(setAnnualInterestRate);
+        }//end AnnualInterestRate
+
+    
+        public static void PrintSavingsAccount(double GetSavingsBalance, string GetsavingsAccountName, float AnnualInterestRate)
+        {
+
+         
+            //Console.WriteLine("Account Name: {}, Account Number:  {1}, Annual Interest Rate:  {2}", savingsAccountName, savingsAccountBalance, annualInteresRate);
+        Console.WriteLine(GetSavingsBalance, GetsavingsAccountName, AnnualInterestRate);
+        }
+    }//end class           
+}//end namespace
+    
+
+
