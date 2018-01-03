@@ -1,0 +1,103 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LTAssignment2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int Item;
+            int Quantity = 0;
+            double grandtotal = 0;
+
+            //The salesperson's name is entered here
+            Console.Write("Enter a salesperson's name: \t");
+            string theName = Console.ReadLine();
+            Console.WriteLine();
+
+            double ItemSales1, ItemSales2, ItemSales3, ItemSales4;
+            do
+            {
+                //An item number is entered or -1 is entered to quit the application
+                Console.Write("Enter an item number between 1 and 4 or -1 to quit: ");
+                Item = int.Parse(Console.ReadLine());
+
+                //If the item is not equal to -1
+                if (Item != -1 && Item <= 4)
+                {
+                    //The quantity is sold here
+                    Console.Write("Enter the quantity sold: ");
+                    Quantity = int.Parse(Console.ReadLine());
+                }//end of if  
+               
+
+                    switch (Item)
+                    {
+
+                    //Item 1 is used here if it was selected
+                        case 1:
+                            {
+
+                            ItemSales1 = Quantity * 239.99;
+                            Console.WriteLine($"Salesperson {theName} sold {Quantity} of item #1 at {ItemSales1:c}");
+                            grandtotal += ItemSales1;
+                            break;
+                            }
+                        //Item 2 is used here
+                        case 2:
+                            {
+                            ItemSales2 = Quantity * 129.75;
+                            Console.WriteLine($"Salesperson {theName} sold {Quantity} of item #2 at {ItemSales2:c}");
+
+                            grandtotal +=  ItemSales2; 
+                                break;
+                            }
+                        //Item 3 is used here
+                        case 3:
+                            {
+                            ItemSales3 = Quantity * 99.95;
+                            Console.WriteLine($"Salesperson {theName} sold {Quantity} of item #3 at {ItemSales3:c}");
+                            grandtotal += ItemSales3;
+                            break;
+                            }
+                        //Item 4 is used here
+                        case 4:
+                        {
+                            ItemSales4 = Quantity * 350.89;
+                            Console.WriteLine($"Salesperson {theName} sold {Quantity} of item #4 at {ItemSales4:c}");
+                            grandtotal += ItemSales4;
+                            break;
+                        }
+                        // If -1 was selected, it uses here
+                        case -1:
+                        {
+                            break;
+                        }
+                        //All the numbers not 1-4 and -1, comes to here
+                        default: 
+                          { Console.WriteLine("Invalid Entry");
+                                break;
+                            }//end of case
+
+                }//end of switch  
+
+                //Add a line of space
+                Console.WriteLine();
+                
+            }//end of do loop
+                    while ( Item != -1 );
+
+            //line written to state the salesperson sold the grand total amount
+            Console.WriteLine($"Salesperson {theName} sold a total of {grandtotal:c}");
+
+            //line to completely exit the application
+            Console.WriteLine("Press the [enter] key to continue....");
+            Console.ReadKey();
+        }//end main
+    }//end class
+} // end namespace
