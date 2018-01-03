@@ -1,0 +1,293 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LTAssignment5
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            
+            int checkingNumber = 1;
+            
+            int savingsNumber = 2;
+            decimal interestrate;
+
+            //checking account object
+            CheckingAccount mycheckingAccount = new CheckingAccount();
+            mycheckingAccount.setBalance(1000);
+
+            //concatenated checking account name, number
+            
+            
+            Console.WriteLine("Tidball-Checking", + checkingNumber);
+
+
+            SavingsAccount mysavingsAccount = new SavingsAccount();
+            mysavingsAccount.setBalance(2000);
+
+            //concatenated checking account name, number
+            
+            interestrate = .05;
+            Console.WriteLine("Tidball-Savings", + savingsNumber, + interestrate);
+            Console.WriteLine("Created savings account with {0:c} balance", mysavingsAccount.getBalance());
+
+            //print account objects information
+             
+            Console.WriteLine(mycheckingAccount.getBalance());
+            Console.WriteLine(mysavingsAccount.getBalance());
+
+            //Deposit money into checking account
+            mycheckingAccount.MethodCredit(100);
+            Console.WriteLine("Deposit {0:C} into checking.", mycheckingAccount.MethodCredit());
+            Console.WriteLine(mycheckingAccount.getBalance());
+
+            //withdraw money from checking account
+            mysavingsAccount.MethodDebit(50);  
+            Console.WriteLine("Withdraw {0:C} from checking.", mysavingsAccount.MethodDebit());
+            Console.WriteLine(mycheckingAccount.getBalance());
+
+            //withdraw attempt of $6000 from checking
+            mycheckingAccount.MethodDebit(6000);
+            Console.WriteLine("Withdraw {0:C} from checking.", mycheckingAccount.MethodDebit());
+
+            Console.WriteLine(mysavingsAccount.getBalance());
+
+            //deposit money into savings
+            mysavingsAccount.MethodCredit(3000);
+            Console.WriteLine("Deposit {0:C} into savings.",mysavingsAccount.MethodCredit());
+            Console.WriteLine(mysavingsAccount.getBalance());
+
+            //withdraw 200 from savings
+            mysavingsAccount.MethodDebit(200);
+            Console.WriteLine("Withdraw {0:C} from savings.", mysavingsAccount.MethodDebit());
+            Console.WriteLine(mysavingsAccount.getBalance());
+
+            //calculate the interest
+            mysavingsAccount.CalculateInterest; //should be pulling from savingsaccount as its created
+            Console.WriteLine("Calculate Interest on savings.");
+            Console.WriteLine(mysavingsAccount.CalculateLInterest);
+
+            //Withdraw 10,000 attempt
+            mysavingsAccount.MethodDebit(10000);
+            Console.WriteLine("Withdraw {0:C} from savings.", mysavingsAccount.MethodDebit());
+            Console.WriteLine(mysavingsAccount.getBalance());
+
+            Console.WriteLine("Press enter to continue.");
+            Console.ReadKey(); 
+        }
+    }
+}
+
+
+=================================================================================================================================
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LTAssignment5
+{
+    class Account
+    {
+        //variables
+        private double Balance;
+        private string AccountName;
+        private int AccountNumber;
+
+
+        //setters
+        public void setAccountName(string AccountNamepassedin)
+        {
+            AccountName = AccountNamepassedin;
+        }
+        public void setAccountNumber(int AccountNumberpassedin)
+        {
+            AccountNumber = AccountNumberpassedin;
+        }
+        public void setBalance(double Balancepassedin)
+        {
+            double initialbalance;
+            initialbalance = 0.0;
+            if (initialbalance > 0.0)
+                Balance = 0;
+
+            Balance = Balancepassedin;
+        }
+
+        //getters
+        public string getAccountName()
+        {
+            return AccountName;
+        }
+        public int getAccountNumber()
+        {
+            return AccountNumber;
+        }
+        public double getBalance()
+        {
+            return Balance;
+        }
+
+        //constructor
+        public Account(double balance, string AccountName, int AccountNumber)
+        {
+            this.Balance = balance;
+            this.AccountName = AccountName;
+            this.AccountNumber = AccountNumber;
+             
+        }
+
+        public void MethodCredit(double Balance)
+        {
+            double currentbalance;
+            
+            currentbalance = Balance;
+        }
+        public void MethodDebit(double balance)
+        {
+            double currentbalance;
+           
+
+            if (balance > balance)
+                Console.WriteLine("Insufficient Funds");
+            else
+                currentbalance = balance;
+        }
+
+        public virtual void PrintAccount()
+        {
+            Console.WriteLine(AccountName, AccountNumber, Balance); 
+        } 
+    }
+}
+================================================================================================================================
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LTAssignment5
+{
+    class SavingsAccount : Account
+    {
+        
+        private double InterestRate;
+
+     
+        //constructor
+        public SavingsAccount(double InterestRate, double balance, string AccountName, int AccountNumber) : base(balance, AccountName, AccountNumber)
+        {
+         
+            this.InterestRate = InterestRate;
+        }
+        //setter
+        public void setInterestRate(double InterestRatepassedin)
+        {
+            InterestRate = InterestRatepassedin;
+            if (InterestRate > 0.0)
+                InterestRate = 0;
+        }
+        //getter
+        public double getInterestRate()
+        {
+            return InterestRate;
+        }
+        public SavingsAccount()
+        {
+            //zero argument constructor
+            
+        }
+
+        public static decimal CalculateInterest(decimal CalculateInterest, decimal InterestRate, decimal balance)
+        {
+            CalculateInterest = (InterestRate * balance);
+            return CalculateInterest;
+        }
+
+        //override
+        public override void PrintAccount()
+        {
+           
+            base.PrintAccount();
+            Console.WriteLine(InterestRate);
+        }
+    }
+}
+===============================================================================================================================
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LTAssignment5
+{
+    class CheckingAccount : Account
+    {
+        private decimal FeeCharged;
+        private decimal FeeAmount;
+
+        
+        //constructor
+        public CheckingAccount(decimal Feeamount, decimal FeeCharged, double balance, string AccountName, int AccountNumber) : base(balance, AccountName, AccountNumber)
+        {
+            
+            this.FeeCharged = FeeCharged;
+            this.FeeAmount = Feeamount;
+        }
+        public CheckingAccount()
+        {
+            //zero arguement constructor
+        }
+        //setter
+        public void setFeeAmount(decimal FeeAmountpassedin)
+        {
+            
+            if (FeeAmount >= 0)
+                FeeAmount = 0;
+
+            FeeAmount = FeeAmountpassedin;
+        }
+        public decimal getFeeAmount()
+        {
+            return FeeAmount;
+        }
+
+
+        //redefine Credit and Debit methods
+        public void MethodCredit(double balance, double currentbalance, double Credit)
+        {
+
+            currentbalance = balance + Credit;
+        }
+        public void MethodDebit(double balance, double currentbalance, double Debit)
+        {
+
+
+            if (currentbalance > balance)
+                Console.WriteLine("Insufficient Funds");
+            else
+                currentbalance = balance - Debit;
+        }
+
+
+        //override
+        public override void PrintAccount()
+        {
+           
+            base.PrintAccount();
+            Console.WriteLine(FeeCharged);
+        }
+
+    }//end class    
+   
+}//end namespace
