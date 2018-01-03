@@ -1,0 +1,68 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LTAssignment1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Declare the variables
+            int x;
+            int y;
+            int sum, sub, divide, multiply, remainder;
+            
+            // the first number
+            Console.Write("Enter the first integer:\t");
+            x = int.Parse(Console.ReadLine());
+            
+            //the second number
+            Console.Write("Enter the second integer:\t");
+            y = int.Parse(Console.ReadLine());
+            
+            //the 2 numbers displayed
+            Console.WriteLine("\nThe two numbers you entered are: {0} and {1}", x, y);
+
+            //the sum portion
+            sum = x + y;
+            Console.WriteLine($"The sum of the two numbers are {sum}.");
+
+            //the subtraction portion
+            sub = x - y;
+            Console.WriteLine($"The difference of the two numbers is {sub}.");
+
+            //the product portion
+            multiply = x * y;
+            Console.WriteLine($"The product of the two numbers is {multiply}.");
+
+            //the quotient portion
+            divide = x / y;
+            Console.WriteLine($"The quotient of the two numbers is {divide}.");
+
+            //the remainder portion
+            remainder = x % y;
+            Console.WriteLine($"The remainder of the two numbers is {remainder}.");
+
+            //if and else of the larger two numbers
+            if (x > y)
+            {
+                Console.WriteLine("\nThe larger of the two numbers is: {0}", x);
+            }
+            else if (x == y)
+            {
+                Console.WriteLine("The two numbers are equal");
+            }
+            else
+            {
+                Console.WriteLine("\nThe larger of the two numbers is: {0}", y);
+            }
+            
+            //to end the program
+                Console.WriteLine("Press the [enter] key to continue");
+            Console.ReadLine();
+        }
+    }
+}
